@@ -167,7 +167,7 @@ impl TransactionAndTransferType {
 		let value_v: U256;
 		match self.transfer_type {
 			TransferType::Ethereum => {
-				from_v = self.transaction.from;
+				from_v = self.transaction.from.unwrap();
 				if let Some(v) = self.transaction.to {
 					to_v = v;
 				} else {
@@ -185,7 +185,7 @@ impl TransactionAndTransferType {
 								let mut resp: BytesToFixedNumber =
 									transaction.input.clone().into();
 								let _ignore = resp.next_vec(4);
-								from_v = transaction.from;
+								from_v = transaction.from.unwrap();
 								to_v = resp.next_h160()?;
 								value_v = resp.next_u256()?;
 							}
