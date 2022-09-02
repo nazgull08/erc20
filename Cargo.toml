@@ -16,7 +16,7 @@ categories = ["parsing"]
 [dependencies]
 maplit = "1.0"
 serde = { version = "1.0", features = ["derive"] }
-web3 = "0.13"
+web3 = "0.18"
 
 [dev-dependencies]
 hex = "0.4"
